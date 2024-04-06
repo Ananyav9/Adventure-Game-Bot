@@ -1,6 +1,8 @@
 import discord
 from discord.ext import commands
 import configure
+import random
+import asyncio
 intents=discord.Intents.all()
 bot = commands.Bot(command_prefix="!",intents=intents)
 @bot.event
@@ -162,10 +164,17 @@ async def go_to_house(ctx):
 
 @bot.command()
 async def riddle1(ctx):
-    #timer needed
-    await ctx.send("I'm a guide without a voice, showing paths both near and far,\nI'm filled with lines and symbols, showing places high and low,\nYou'll need me on an adventure, whether by foot, plane, or car.\nWith me, you'll never lose your way, no matter where you go.\nAm I a compass, a map, a chart or a star?\n")
-    await ctx.send("(Type !compass or !map or !chart or !star)")
 
+    await ctx.send("`I'm a guide without a voice, showing paths both near and far,\nI'm filled with lines and symbols, showing places high and low,\nYou'll need me on an adventure, whether by foot, plane, or car.\nWith me, you'll never lose your way, no matter where you go.\nAm I a compass, a map, a chart or a star?\n`")
+    await ctx.send("(Type !compass or !map or !chart or !star)")
+    def check(message):
+        return message.author == ctx.author and message.channel == ctx.channel and isinstance(message.content, str)
+    try:
+        await bot.wait_for('message', timeout=15, check=check)
+
+    except asyncio.TimeoutError:
+        await ctx.send("You took too long to guess. The sphinx👹 gets impatient and gobbles you up. You died. :( .")
+        await ctx.send("The villagers of Quazawaaka continued to disappear until no remained. Later due to starvation even the monster👺 that kidnapped and ate the villagers in the 🌳forest🌳 died.  \n \n The End.. \n \n You can play the game 🎮 again by typing `!start`.")
 
 @bot.command()
 async def compass(ctx):
@@ -193,11 +202,19 @@ async def map(ctx):
     await ctx.send("It eyes you with a shrewd interest and starts with the second riddle.")
     await ctx.send("(Type !riddle2 for the 2nd riddle.)")
 
-@bot.command()
 async def riddle2(ctx):
-    
-    await ctx.send("I'm often flipped but never tossed,\nIn pockets or jars, I'm often lost.\nI have two sides, heads and tails,\nYet I'm not part of any scales.\nWhat am I? A marble, dice, coin or button?\nAnswer fast before you become nothing but mutton.\n")
-    await ctx.send("(Type !marble or !dice or !coin or !button)")
+    #timer
+    await ctx.send("`I'm often flipped but never tossed,\nIn pockets or jars, I'm often lost.\nI have two sides, heads and tails,\nYet I'm not part of any scales.\nWhat am I? A marble, dice, coin or button?\nAnswer fast before you become nothing but mutton.\n`")
+    await ctx.send("(Type `!marble` or `!dice` or `!coin` or `!button`)")
+    def check(message):
+        return message.author == ctx.author and message.channel == ctx.channel and isinstance(message.content, str)
+    try:
+        await bot.wait_for('message', timeout=15, check=check)
+
+    except asyncio.TimeoutError:
+        await ctx.send("You took too long to guess. The sphinx👹 gets impatient and gobbles you up. You died. :( .")
+        await ctx.send("The villagers of Quazawaaka continued to disappear until no remained. Later due to starvation even the monster👺 that kidnapped and ate the villagers in the 🌳forest🌳 died.  \n \n The End.. \n \n You can play the game 🎮 again by typing `!start`.")
+
 
 @bot.command()
 async def marble(ctx):
@@ -224,6 +241,49 @@ async def coin(ctx):
     await ctx.send("You leave from the house. As you walk in the forest you feel a prickling feeling on the back of your neck, like someone is watching you. You yell,'Who is there? Show yourself.' A slender, ethereal figure emerges from the shadow. Aforest spirit you realise.")
     await ctx.send("Do you talk to the forest spirit or do you ignore her and walk away, further into the forest ?")
     await ctx.send("(Type talk_to_spirit or further_into_forest)")
+
+@bot.command()
+async def talk_to_spirit(ctx):
+
+    await ctx.send("You look at her a bit apprehensively and ask her,' Do you have any idea of an object that might help with my journey to save the villagers of Quazawaaka? Like maybe a coin or a map or something?' She looks at you with an amused expression and says, 'Perhaps, perhaps not. Why should I help you? What will I gain from this?' You feel frustration building up in you.")
+    await ctx.send("You wonder if she will accept any sort of deal.")
+    await ctx.send("Do you make a deal or leave the forest spirit and walk away, further into the forest ?")
+    await ctx.send("(Type `!make_deal` or `!further_into_forest`)")
+
+
+@bot.command()
+async def make_deal(ctx):
+    
+    await ctx.send("You say,'How about we make a deal?' The forest spirit laughs and says, 'Yes. I will give you this coin with a map engraved on it. Follow the map and get me a flower of the plants that bloom there.'")
+    await ctx.send("You accept the deal and the coin. As you follow the map, you encounter a person on your way. They happen to have a sword which is designed to kill anything. You know that you will require it for your journey.")
+    await ctx.send("When you ask for the sword , they say,'No, I earned this sword. If you want it, you must earn it.'")
+    await ctx.send("(Type `!fight_person` )")
+
+@bot.command()
+async def fight_person(ctx):
+    await ctx.send("'Ok fine. How do I earn it?', you ask. The person says,'Both of us will guess a number from 1 to 5 (1 and 5 are included),whoever guesses the higher number will win.' 'Isn't that luck based?'you retort.")
+    await ctx.send("  They ignore your comment and continue,'If you lose I will kill you, if you win you may take the sword.'you have no choice but to agree.")
+    await ctx.send("(Type `!guess (the number you are guessing)`)")
+@bot.command()
+async def guess(ctx, user_guess: int):
+    person_guess = random.randint(1, 5)
+    
+    if user_guess >= person_guess:
+        await ctx.send("You guessed correctly and obtained the sword from the person")
+        await ctx.send("You continue following the map and reach a field of tulip like flowers. As you go to cut the flower, in the middle of the field you can see a necklace on a pedestal. A stone carving nearby proclaims that the necklace heals its wearer of any life-threatening injuries. You start moving to the middle of the field just for the plants to start moving and strangle you. You cut down the plants with your sword and manage to go and grab the neckalce.")
+        await ctx.send("Type `!go_to_spirit` to return to the forest spirit again.")
+
+    else:
+        await ctx.send("Oh no! Your guess was incorrect. The person's guess was higher. They behead you. You die :( .)")
+        await ctx.send("The villagers of Quazawaaka continued to disappear until no remained. Later due to starvation even the monster that kidnapped and ate the villagers in the forest died.  \n \n The End.. \n \n You can play the game again by typing `!start`.")
+    
+
+@bot.command()
+async def go_to_spirit(ctx):
+    await ctx.send("The forest spirit simply grins when she sees you come back, wearing the necklace📿. 'If you want to make another deal, you know who to look for.', she says as you hand over the flower and coin. You simply walk away from there. As you continue your journey you hear the waterfall again")
+    await ctx.send("Will you go to the waterfall or go further into the forest?")
+    await ctx.send("(Type `!go_to_waterfall_again` or `!further_into_forest`)")
+
 
 
 
