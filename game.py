@@ -14,7 +14,9 @@ async def on_ready():
     await bot.tree.sync()
 
 know=False
+global number
 number=0
+global nu
 nu=0
 #Introduction
 @bot.tree.command()
@@ -67,12 +69,13 @@ async def fight_monster(ctx):
 async def escape_to_forest(ctx):
     await ctx.channel.purge(limit=5)
     know=True
-    with open('forest.jpeg', 'rb') as f:
+    with open('forest2.jpeg', 'rb') as f:
         file = discord.File(f)
         await ctx.send(file=file)
         await ctx.send("As you continue your journey in the the 🌳forest🌳 you see a person drowning in a turbulent river. ")
         await ctx.send("Do you save the person or go further into the forest. What do you do?")
         await ctx.send("(Type !save_person or !further_into_forest)")
+        global number
         number=4
 
 @bot.command()
@@ -84,12 +87,13 @@ async def continue_in_forest(ctx):
         await ctx.send("As you continue your journey in the the 🌳forest🌳 you see a person drowning in a turbulent river. ")
         await ctx.send("Do you save the person or go further into the forest. What do you do?")
         await ctx.send("(Type !save_person or !further_into_forest)")
+        global number
         number=4
 
 @bot.command()
 async def further_into_forest(ctx):
     await ctx.channel.purge(limit=number+1)
-    with open('forest.jpeg', 'rb') as f:
+    with open('forest2.jpeg', 'rb') as f:
         file = discord.File(f)
         await ctx.send(file=file)
         await ctx.send("You continue walking further into the 🌳forest🌳.You walk for many hours before you notice that you are walking in circles.")
@@ -177,6 +181,7 @@ async def follow_map(ctx):
     await ctx.send("You walk for a long time before you reach a field of huge tulip like flowers. In the middle of the field you can see a necklace📿 on a pedestal. A stone carving nearby proclaims that the necklace📿 heals its wearer of any life-threatening injuries.")
     await ctx.send("You remember what the forest spirit🧝 said and decide that the necklace📿 would be useful for the journey. Will you enter the field or go further into the 🌳forest🌳?")
     await ctx.send("(Type !enter_field or !further_into_forest)")
+    global number
     number=3
 
 @bot.command()
@@ -216,6 +221,7 @@ async def exchange_coin(ctx):
     await ctx.send("You quickly memorize the map🗺 and exchange the coin🪙. You take the scythe🗡, exit the shop and follow the map🗺 until you reach a field of huge tulip like flowers. In the middle of the field you can see a necklace📿 on a pedestal. A stone carving nearby proclaims that the necklace📿 heals its wearer of any life-threatening injuries.")
     await ctx.send("You remember what the forest spirit🧝 said and decide that the necklace📿 would be useful for the journey. Will you go into the field or go further into the 🌳forest🌳?")
     await ctx.send("(Type !go_into_field or !further_into_forest)")
+    global number
     number=3
 
 @bot.command()
@@ -229,6 +235,7 @@ async def go_into_field(ctx):
         await ctx.send("You enter the field just for the plants to start moving and strangle you. You cut down the plants with your scythe🗡 and manage to go and grab the neckalce. You wear the necklace📿 and it heals you. You continue walking in the 🌳forest🌳 until you hear the waterfall again.")
         await ctx.send("Will you go to the waterfall or go further into the forest?")
         await ctx.send("(Type !go_to_waterfall_again or !further_into_forest)")
+        global number
         number=4
 
 @bot.command()
@@ -243,6 +250,7 @@ async def go_to_waterfall_again(ctx):
         await ctx.send("You have reached the waterfall again.")
         await ctx.send("Do you choose to go and explore the cave behind the waterfall or go further into the 🌳forest🌳?")
         await ctx.send("(Type !further_into_forest or !go_into_cave)")
+        global number
         number=4
 
 @bot.command()
@@ -260,6 +268,7 @@ async def go_into_cave(ctx):
             await ctx.send("As you enter the cave, you can see bones laying around and the smell of rot permeates the air. Suddenly you hear a groan.You hide behind a rock just as the monster👺 appears.")
         await ctx.send("Do you escape into the 🌳forest🌳 or fight the monster👺?")
         await ctx.send("(Type !further_into_forest or !fight_the_monster)")
+        global number
         number=4
 
 @bot.command()
@@ -429,6 +438,7 @@ async def coin(ctx):
     await ctx.send("You leave from the house. As you walk in the 🌳forest🌳 you feel a prickling feeling on the back of your neck, like someone is watching you. You yell,'Who is there? Show yourself.' A slender, ethereal figure emerges from the shadow. A forest spirit🧝 you realise.")
     await ctx.send("Do you talk to the forest spirit🧝 or do you ignore her and walk away, further into the 🌳forest🌳 ?")
     await ctx.send("(Type !talk_to_spirit or !further_into_forest)")
+    global number
     number=4
 
 
@@ -443,6 +453,7 @@ async def talk_to_spirit(ctx):
         await ctx.send("You wonder if she will accept any sort of deal.")
         await ctx.send("Do you make a deal or leave the forest spirit🧝 and walk away, further into the 🌳forest🌳 ?")
         await ctx.send("(Type !make_deal or !further_into_forest)")
+        global number
         number=5
 
 @bot.command()
@@ -473,6 +484,7 @@ async def enter_chamber(ctx):
 
 @bot.command()
 async def rearrange(ctx, *symbols):
+    global nu
     nu+=1
 
     if list(symbols) == CORRECT_PATTERN :
@@ -484,6 +496,7 @@ async def rearrange(ctx, *symbols):
         await ctx.send("Type !go_to_spirit to return to the forest spirit🧝 again.")
         nu=nu+7
     else:
+        nu+=1
         await ctx.send("Nothing happens. Looks like this isn't the correct pattern. To keep trying type !rearrange L E T T E R S I N T H E C O R R E C T O R D E R")
 
 
@@ -495,7 +508,8 @@ async def display_symbols(ctx, pattern):
 
 @bot.command()
 async def go_to_spirit(ctx):
-    await ctx.channel.purge(limit=nu)
+    global nu
+    await ctx.channel.purge(limit=nu+1)
     with open('spirit_talking.jpeg', 'rb') as f:
         file = discord.File(f)
         
@@ -503,6 +517,7 @@ async def go_to_spirit(ctx):
         await ctx.send("The forest spirit🧝 simply grins when she sees you come back, wearing the necklace📿. 'If you want to make another deal, you know who to look for.', she says as you hand over the flower and coin🪙. You simply walk away from there. As you continue your journey you hear the waterfall again")
         await ctx.send("Will you go to the waterfall or go further into the 🌳forest🌳?")
         await ctx.send("(Type !go_to_waterfall_again or !further_into_forest)")
+        global number
         number=4
 
 
