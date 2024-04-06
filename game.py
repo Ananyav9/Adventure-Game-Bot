@@ -211,7 +211,7 @@ async def go_to_waterfall_again(ctx):
 
 @bot.command()
 async def go_into_cave(ctx):
-    with open('field_of_flowers.jpeg', 'rb') as f:
+    with open('cave.jpeg', 'rb') as f:
 
         file = discord.File(f)
       
@@ -377,7 +377,7 @@ async def coin(ctx):
 
 @bot.command()
 async def talk_to_spirit(ctx):
-    with open('forest_spirit.jpeg', 'rb') as f:
+    with open('spirit_talking.jpeg', 'rb') as f:
 
         file = discord.File(f)
         await ctx.send(file=file)
@@ -434,7 +434,7 @@ async def display_symbols(ctx, pattern):
 
 @bot.command()
 async def go_to_spirit(ctx):
-    with open('spirit_talking.jpeg', 'rb') as f:
+    with open('forest_spirit.jpeg', 'rb') as f:
         file = discord.File(f)
         
         await ctx.send(file=file)
