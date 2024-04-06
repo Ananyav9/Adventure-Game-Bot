@@ -13,6 +13,7 @@ async def on_ready():
     await bot.tree.sync()
 
 know=False
+have_scythe=False
 #Introduction
 @bot.tree.command()
 async def start_game(inter: discord.Interaction):
@@ -58,7 +59,7 @@ async def fight_monster(ctx):
 @bot.command()
 async def escape_to_forest(ctx):
     know=True
-    with open('forest.jpeg', 'rb') as f:
+    with open('forest2.jpeg', 'rb') as f:
         file = discord.File(f)
         await ctx.send(file=file)
         await ctx.send("As you continue your journey in the the 🌳forest🌳 you see a person drowning in a turbulent river. ")
@@ -76,7 +77,7 @@ async def continue_in_forest(ctx):
 
 @bot.command()
 async def further_into_forest(ctx):
-    with open('forest.jpeg', 'rb') as f:
+    with open('forest2.jpeg', 'rb') as f:
         file = discord.File(f)
         await ctx.send(file=file)
         await ctx.send("You continue walking further into the 🌳forest🌳.You walk for many hours before you notice that you are walking in circles.")
@@ -143,7 +144,8 @@ async def rescue(ctx,action:str):
     
     if PERSON_POSITION==DPERSON_POSITION:
         await ctx.send("You have successfully saved the person.As the person thanks you,a forest spirit appears at their side.She says'Thank you for rescuing my friend and in return I shall give you something that will help you in your journey.'\n She gives you a coin with a map engraved on it. ")
-        await ctx.send("(Type `!follow_map` to follow the map)")
+        await ctx.send("You start following the map on the coin until you reach a mysterious shop in the middle of nowhere. Do you enter the shop or continue following the map? ")
+        await ctx.send("(Type `!enter_shop` or `!follow_map`)")
 
 @bot.command()
 async def follow_map(ctx):
@@ -265,6 +267,7 @@ async def fight(ctx, action: str):
             if user_hp <= 0 and monster_hp<=0:
                 await ctx.send("You have dealt the final blow. Both you and the monster die at the same time.")
                 await ctx.send("The villagers were first worried about how you never returned but soon realised that no one went missing anymore. They realised that you gave your life to save theirs. The villagers of Quazawaaka live happily ever after. This day every year they gather around and mourn your death and thank you for your services.")
+                await ctx.send("The End.. \n \n You can play the game 🎮 again by typing `!start` or quit the game by typing `!close`.")
             elif user_hp<=0:
                 await ctx.send("The monster👺 grabs you, breaks you in half and gobbles you up.You died :(.")
                 await ctx.send("The villagers of Quazawaaka continued to disappear until no remained. Later due to starvation even the monster died.  \n \n The End.. \n \n You can play the game 🎮 again by typing `!start` or quit the game by typing `!close`.")
