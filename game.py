@@ -28,7 +28,7 @@ async def start_game(inter: discord.Interaction):
 @bot.command()
 async def start(ctx):
     await ctx.channel.purge(limit=2)
-    with open('forest.png', 'rb') as f:
+    with open('forest.jpeg', 'rb') as f:
         file = discord.File(f)
         await ctx.send(file=file)
         await ctx.send("You venture into the dark 🌳forest🌳 encounter a fork in the path. On one side you can see an abandoned house, on the other side you can hear roar of a waterfall.")
@@ -48,7 +48,7 @@ async def go_to_waterfall(ctx):
 @bot.command()
 async def go_to_cave(ctx):
     await ctx.channel.purge(limit=5)
-    with open('cave.png', 'rb') as f:
+    with open('cave.jpeg', 'rb') as f:
         file = discord.File(f)
         await ctx.send(file=file)
         await ctx.send("As you enter the cave, you can see bones laying around and the smell of rot permeates the air. Suddenly you hear a groan.You hide behind a rock just as a huge monster👺 appears. You then realise that this monster👺 is the reason that the villagers of Quazawaaka have disappeared.")
@@ -67,7 +67,7 @@ async def fight_monster(ctx):
 async def escape_to_forest(ctx):
     await ctx.channel.purge(limit=5)
     know=True
-    with open('forest.png', 'rb') as f:
+    with open('forest.jpeg', 'rb') as f:
         file = discord.File(f)
         await ctx.send(file=file)
         await ctx.send("As you continue your journey in the the 🌳forest🌳 you see a person drowning in a turbulent river. ")
@@ -78,7 +78,7 @@ async def escape_to_forest(ctx):
 @bot.command()
 async def continue_in_forest(ctx):
     await ctx.channel.purge(limit=5)
-    with open('river.png', 'rb') as f:
+    with open('river.jpeg', 'rb') as f:
         file = discord.File(f)
         await ctx.send(file=file)
         await ctx.send("As you continue your journey in the the 🌳forest🌳 you see a person drowning in a turbulent river. ")
@@ -89,7 +89,7 @@ async def continue_in_forest(ctx):
 @bot.command()
 async def further_into_forest(ctx):
     await ctx.channel.purge(limit=number+1)
-    with open('forest.png', 'rb') as f:
+    with open('forest.jpeg', 'rb') as f:
         file = discord.File(f)
         await ctx.send(file=file)
         await ctx.send("You continue walking further into the 🌳forest🌳.You walk for many hours before you notice that you are walking in circles.")
@@ -182,7 +182,7 @@ async def follow_map(ctx):
 @bot.command()
 async def enter_field(ctx):
     await ctx.channel.purge(limit=4)
-    with open('field_of_flowers.png', 'rb') as f:
+    with open('field_of_flowers.jpeg', 'rb') as f:
 
         file = discord.File(f)
 
@@ -193,7 +193,7 @@ async def enter_field(ctx):
 @bot.command()
 async def enter_shop(ctx):
     await ctx.channel.purge(limit=5)
-    with open('magical_shop.png', 'rb') as f:
+    with open('magical_shop.jpeg', 'rb') as f:
 
         file = discord.File(f)
 
@@ -221,7 +221,7 @@ async def exchange_coin(ctx):
 @bot.command()
 async def go_into_field(ctx):
     await ctx.channel.purge(limit=4)
-    with open('field_of_flowers.png', 'rb') as f:
+    with open('field_of_flowers.jpeg', 'rb') as f:
 
         file = discord.File(f)
 
@@ -248,7 +248,7 @@ async def go_to_waterfall_again(ctx):
 @bot.command()
 async def go_into_cave(ctx):
     await ctx.channel.purge(limit=5)
-    with open('cave.png', 'rb') as f:
+    with open('cave.jpeg', 'rb') as f:
 
         file = discord.File(f)
       
@@ -338,7 +338,7 @@ async def fight(ctx, action: str):
 @bot.command()
 async def go_to_house(ctx):
     await ctx.channel.purge(limit=4)
-    with open('abandoned_house.png', 'rb') as f:
+    with open('abandoned_house.jpeg', 'rb') as f:
         file = discord.File(f)
         await ctx.send(file=file)
     await ctx.send("After entering the house you see a sphinx👹 standing there, watching you. It comes closer to you and declares that you have to answer its riddles🧩, otherwise it will kill you.")
@@ -435,7 +435,7 @@ async def coin(ctx):
 @bot.command()
 async def talk_to_spirit(ctx):
     await ctx.channel.purge(limit=5)
-    with open('forest_spirit.png', 'rb') as f:
+    with open('forest_spirit.jpeg', 'rb') as f:
 
         file = discord.File(f)
         await ctx.send(file=file)
@@ -477,7 +477,7 @@ async def rearrange(ctx, *symbols):
 
     if list(symbols) == CORRECT_PATTERN :
         await ctx.send("You've successfully rearranged the symbols. You step back as the rocks collapse in front of you. When everything settles, the weapon, a scythe lies at your feet. You pick it up and go from here. You continue following the map🗺 and reach a field of tulip like flowers.")
-        with open('field_of_flowers.png', 'rb') as f:
+        with open('field_of_flowers.jpeg', 'rb') as f:
             file = discord.File(f)
             await ctx.send(file=file)
             await ctx.send("As you go to cut the flower, in the middle of the field you can see a necklace📿 on a pedestal. A stone carving nearby proclaims that the necklace📿 heals its wearer of any life-threatening injuries. You start moving to the middle of the field just for the plants to start moving and strangle you. You cut down the plants with your scythe🗡 and manage to go and grab the neckalce.")
@@ -496,7 +496,7 @@ async def display_symbols(ctx, pattern):
 @bot.command()
 async def go_to_spirit(ctx):
     await ctx.channel.purge(limit=nu)
-    with open('spirit_talking.png', 'rb') as f:
+    with open('spirit_talking.jpeg', 'rb') as f:
         file = discord.File(f)
         
         await ctx.send(file=file)
