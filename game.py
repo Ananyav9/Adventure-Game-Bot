@@ -158,14 +158,72 @@ async def go_to_house(ctx):
     
     await ctx.send("After entering the house you see a sphinx standing there, watching you. It comes closer to you and declares that you have to answer its riddles, otherwise it will kill you")
     await ctx.send("You know that you cannot escape it so you have to answer its riddles.")
-    await ctx.send("(Type !riddle1 for the 1st one)")
+    await ctx.send("(Type !riddle1 for the 1st riddle.)")
 
 @bot.command()
 async def riddle1(ctx):
     #timer needed
     await ctx.send("I'm a guide without a voice, showing paths both near and far,\nI'm filled with lines and symbols, showing places high and low,\nYou'll need me on an adventure, whether by foot, plane, or car.\nWith me, you'll never lose your way, no matter where you go.\nAm I a compass, a map, a chart or a star?\n")
-    await ctx.send("(Type !compass or !map or `!)")
+    await ctx.send("(Type !compass or !map or !chart or !star)")
 
+
+@bot.command()
+async def compass(ctx):
+    
+    await ctx.send("'Ha! the answer is wrong.', the sphinx proclaims and gobbles you up. You die :( .)")
+    await ctx.send("The villagers of Quazawaaka continued to disappear until no remained. Later due to starvation even the monster died.  \n The End. \n \n You can play the game again by typing !start.")
+
+@bot.command()
+async def chart(ctx):
+    
+    await ctx.send("'Ha! the answer is wrong.', the sphinx proclaims and gobbles you up. You die :( .)")
+    await ctx.send("The villagers of Quazawaaka continued to disappear until no remained. Later due to starvation even the monster died.  \n The End. \n \n You can play the game again by typing !start.")
+
+@bot.command()
+async def star(ctx):
+    
+    await ctx.send("'Ha! the answer is wrong.', the sphinx proclaims and gobbles you up. You die :( .)")
+    await ctx.send("The villagers of Quazawaaka continued to disappear until no remained. Later due to starvation even the monster died.  \n The End. \n \n You can play the game again by typing !start.")
+
+
+@bot.command()
+async def map(ctx):
+    
+    await ctx.send("'Hmm. The answer is correct.', says the the sphinx. 'Answer the second riddle and I'll let you go.' ")
+    await ctx.send("It eyes you with a shrewd interest and starts with the second riddle.")
+    await ctx.send("(Type !riddle2 for the 2nd riddle.)")
+
+@bot.command()
+async def riddle2(ctx):
+    
+    await ctx.send("I'm often flipped but never tossed,\nIn pockets or jars, I'm often lost.\nI have two sides, heads and tails,\nYet I'm not part of any scales.\nWhat am I? A marble, dice, coin or button?\nAnswer fast before you become nothing but mutton.\n")
+    await ctx.send("(Type !marble or !dice or !coin or !button)")
+
+@bot.command()
+async def marble(ctx):
+    
+    await ctx.send("'Ha! the answer is wrong.', the sphinx proclaims and gobbles you up. You die :( .)")
+    await ctx.send("The villagers of Quazawaaka continued to disappear until no remained. Later due to starvation even the monster died.  \n The End. \n \n You can play the game again by typing !start.")
+
+@bot.command()
+async def dice(ctx):
+    
+    await ctx.send("'Ha! the answer is wrong.', the sphinx proclaims and gobbles you up. You die :( .)")
+    await ctx.send("The villagers of Quazawaaka continued to disappear until no remained. Later due to starvation even the monster died.  \n The End. \n \n You can play the game again by typing !start.")
+
+@bot.command()
+async def button(ctx):
+    
+    await ctx.send("'Ha! the answer is wrong.', the sphinx proclaims and gobbles you up. You die :( .)")
+    await ctx.send("The villagers of Quazawaaka continued to disappear until no remained. Later due to starvation even the monster died.  \n The End. \n \n You can play the game again by typing !start.")
+
+@bot.command()
+async def coin(ctx):
+    
+    await ctx.send("The sphinx looks surprised. 'For over a century no one has been able to answer the riddle correctly. Since you have impresses me I will not only let you go but also tell you that the answer to these riddles will help you in your journey. Farewell adventurer'")
+    await ctx.send("You leave from the house. As you walk in the forest you feel a prickling feeling on the back of your neck, like someone is watching you. You yell,'Who is there? Show yourself.' A slender, ethereal figure emerges from the shadow. Aforest spirit you realise.")
+    await ctx.send("Do you talk to the forest spirit or do you ignore her and walk away, further into the forest ?")
+    await ctx.send("(Type talk_to_spirit or further_into_forest)")
 
 
 
