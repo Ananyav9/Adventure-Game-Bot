@@ -10,7 +10,7 @@ intents=discord.Intents.all()
 bot = commands.Bot(command_prefix="!",intents=intents)
 @bot.event#as soon as bot is online
 async def on_ready():
-    print(f'Logged in as {bot.user}')
+    print(f'Game bot {bot.user} is ready')
     await bot.tree.sync()
 
 know=False
@@ -346,7 +346,7 @@ async def fight(ctx, action: str):
 
 @bot.command()
 async def go_to_house(ctx):
-    await ctx.channel.purge(limit=4)
+    await ctx.channel.purge(limit=5)
     with open('abandoned_house.jpeg', 'rb') as f:
         file = discord.File(f)
         await ctx.send(file=file)
@@ -357,7 +357,7 @@ async def go_to_house(ctx):
 
 @bot.command()
 async def riddle1(ctx):
-    await ctx.channel.purge(limit=5)
+    await ctx.channel.purge(limit=6)
 
     await ctx.send("I'm a guide without a voice, showing paths both near and far,places high and low,\nI'm filled with lines and symbols,\nYou'll need me on an adventure, whether by foot, plane, or car.\nWith me, you'll never lose your way, no matter where you go.\nAm I a compass, a map, a chart or a star?\n")
     await ctx.send("(Type `!compass` or `!map` or `!chart` or `!star`)")
@@ -401,7 +401,7 @@ async def map(ctx):
 async def riddle2(ctx):
     await ctx.channel.purge(limit=4)
 
-    await ctx.send("I'm often flipped but never tossed,\nIn pockets or jars, I'm often lost.\nI have two sides,you can also see me outside or inside the temples\nYet I'm not part of any scales.\nWhat am I? A marble, dice, coin or button?\nAnswer fast before you become nothing but mutton.\n")
+    await ctx.send("I'm often flipped but never tossed,\nIn pockets or jars, I'm often lost.\nI have two sides,i have head and tail\nYet I'm not part of any scales.\nWhat am I? A marble, dice, coin or button?\nAnswer fast before you become nothing but mutton.\n")
     await ctx.send("(Type `!marble` or `!dice` or `!coin` or `!button`)")
     def check(message):
         return message.author == ctx.author and message.channel == ctx.channel and isinstance(message.content, str)
