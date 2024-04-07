@@ -1,10 +1,10 @@
 import discord
 from discord.ext import commands
-#import configure
+import configure
 import random
 import asyncio
-import os
-token = os.getenv("DISCORD_TOKEN")
+#import os
+#token = os.getenv("DISCORD_TOKEN")
 
 
 intents=discord.Intents.all()
@@ -530,4 +530,5 @@ async def close(ctx):
 
 
 
-bot.run(token)
+#bot.run(token)
+bot.run(configure.DISCORD_TOKEN)
