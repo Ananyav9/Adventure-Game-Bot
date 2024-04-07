@@ -20,7 +20,7 @@ The commands to choose and continue the story will be given in the messages sent
 ## Deployment (if done)
 
 ## Applications of your idea
-
+The bot can be used to increase engagement in your server. It is a great way to be entertainment, alleviating boredom.
 ## Further improvements
-
+Improvements that can be done are taking care of how the purge function is used as the number of messages to be deleted is hard-coded. Another is to expand the storyline and add more games in between. Also, hosting in cloud could be done.
 ## Demo video (YouTube link)
