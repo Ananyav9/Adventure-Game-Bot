@@ -23,7 +23,7 @@ jobs:
     - name: Set up Discord bot
       run: |
         # Assuming your bot startup command is something like 'python bot.py'
-        python bot.py ${{ secrets.DISCORD_TOKEN }}
+        python game.py ${{ secrets.DISCORD_TOKEN }}
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
