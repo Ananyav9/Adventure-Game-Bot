@@ -18,7 +18,7 @@ We used python and discord.py in VS code.
 After inviting a bot to start with the instructions, enter: /start_game .
 The commands to choose and continue the story will be given in the messages sent by the bot.
 ## Deployment (if done)
-
+None
 ## Applications of your idea
 The bot can be used to increase engagement in your server. It is a great way to be entertainment, alleviating boredom.
 ## Further improvements
