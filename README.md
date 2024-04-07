@@ -15,6 +15,7 @@ There is also a game with a battle.
 ## Tech Stack
 We used python and discord.py in VS code.
 ## How to run
+Link to invite bot: https://discord.com/oauth2/authorize?client_id=1224387632306323567&permissions=8&scope=bot
 After inviting a bot to start with the instructions, enter: /start_game .
 The commands to choose and continue the story will be given in the messages sent by the bot.
 ## Deployment (if done)
